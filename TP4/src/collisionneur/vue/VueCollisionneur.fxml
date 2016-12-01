@@ -7,11 +7,11 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="748.0" style="-fx-background-color: #b0c4de;" styleClass="background" stylesheets="@../../../res/styles/collisionneur_styles.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collisionneur.controleur.CtrlCollisionneur">
+<BorderPane fx:id="borderp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="748.0" styleClass="backgroung" stylesheets="@../../../res/styles/collisionneur_styles.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collisionneur.controleur.CtrlCollisionneur">
    <bottom>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +20,7 @@
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <Label text="Particules :" />
-                        <Label fx:id="compteur" text="10">
+                        <Label fx:id="compteur" text="0">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -67,10 +67,10 @@
       </VBox>
    </bottom>
    <top>
-      <Pane fx:id="pane" onMouseClicked="#genererClick" prefHeight="348.0" prefWidth="820.0" style="-fx-border-style: black;" styleClass="pane" BorderPane.alignment="CENTER">
+      <StackPane fx:id="pane" onMousePressed="#genererClick" prefHeight="348.0" prefWidth="820.0" styleClass="pane" stylesheets="@../../../res/styles/collisionneur_styles.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
-      </Pane>
+      </StackPane>
    </top>
 </BorderPane>
