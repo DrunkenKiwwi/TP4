@@ -98,7 +98,9 @@ public class Particule {
 	}
 
 	public void setVitesseX(double vitesseX) {
+
 		this.vitesseX = vitesseX;
+
 	}
 
 	public double getVitesseY() {
@@ -106,7 +108,9 @@ public class Particule {
 	}
 
 	public void setVitesseY(double vitesseY) {
+
 		this.vitesseY = vitesseY;
+
 	}
 
 }

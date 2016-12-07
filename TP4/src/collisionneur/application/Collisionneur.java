@@ -28,7 +28,6 @@ public class Collisionneur extends Application {
 		stage.setScene(scene);
 		stage.setResizable(false);
 		stage.show();
-		
 
 	}
 

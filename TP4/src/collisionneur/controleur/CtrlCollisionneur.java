@@ -6,9 +6,11 @@ import collisionneur.modele.ChambreDeParticules;
 import collisionneur.modele.InfoParticule;
 import collisionneur.modele.Particule;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -19,7 +21,7 @@ import javafx.stage.Stage;
 
 public class CtrlCollisionneur {
 
-	private static final int NBPARTICULES = 2;
+	private static final int NBPARTICULES = 5;
 
 	@FXML
 	private Label compteur;
@@ -56,12 +58,17 @@ public class CtrlCollisionneur {
 
 	}
 
+	/**
+	 * Genere une particule lorsqu'on clique sur le boutton "Générer", verifie
+	 * ses paramêtre à l'aide d'une objet transitoire puis l'ajoute au tableau
+	 * de particule.
+	 */
 	@FXML
 	private void genererBoutton() {
 		for (int i = 0; i < NBPARTICULES; i++) {
 			Color randomColor = new Color(Math.random(), Math.random(), Math.random(), 1);
 
-			Particule particule = new Particule(Math.random() * (728), Math.random() * (348),
+			Particule particule = new Particule(Math.random() * (700), Math.random() * (330),
 					4 + Math.random() * (11 - 4), Math.random() * 11, Math.random() * (11), Math.random() * (360),
 					randomColor);
 
@@ -72,12 +79,20 @@ public class CtrlCollisionneur {
 			} catch (BordureException e) {
 
 			}
-
-			ajouterParticules(chambre.getParticule());
+			if (chambre != null) {
+				ajouterParticules(chambre.getParticule());
+			}
 		}
 
 	}
 
+	/**
+	 * Genere une particule lorsqu'on clique sur le StackPane, verifie ses
+	 * paramêtre à l'aide d'une objet transitoire puis l'ajoute au tableau de
+	 * particule.
+	 *
+	 * @param event
+	 */
 	@FXML
 	private void genererClick(MouseEvent event) {
 
@@ -93,11 +108,16 @@ public class CtrlCollisionneur {
 		} catch (BordureException e) {
 
 		}
-
-		ajouterParticules(chambre.getParticule());
+		if (chambre != null) {
+			ajouterParticules(chambre.getParticule());
+		}
 
 	}
 
+	/**
+	 * Clear le StackPane des particule et vide le tableau Remts le compteur à
+	 * zéro
+	 */
 	@FXML
 	private void reset() {
 		arrayBalle.clear();
@@ -105,6 +125,9 @@ public class CtrlCollisionneur {
 		compteur.setText("0");
 	}
 
+	/**
+	 * Ferme le stage lorsqu'on appuie sur "Quitter"
+	 */
 	@FXML
 	private void fermer() {
 		Stage stage = (Stage) borderp.getScene().getWindow();
@@ -121,6 +144,13 @@ public class CtrlCollisionneur {
 		this.pane = (StackPane) pane;
 	}
 
+	/**
+	 * Crée une shape à l'aide du la particule reçu en paramêtre et l'ajoute à
+	 * la StackPane. Change la String du compteur afin de l'adapter au nombre de
+	 * particule
+	 *
+	 * @param p
+	 */
 	public void ajouterParticules(Particule p) {
 		arrayBalle.add(p);
 		Circle c = new Circle(p.getPosX(), p.getPosY(), p.getRayon(), p.getCouleur());

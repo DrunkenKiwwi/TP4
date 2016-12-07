@@ -7,10 +7,10 @@ public class BordureException extends Exception {
 	public BordureException() {
 		Alert err = new Alert(AlertType.ERROR);
 		err.setTitle("Erreur");
-		err.setHeaderText("Balle à l'extérieur de l'espace");
+		err.setHeaderText("Balle Ã  l'extÃ©rieur de l'espace");
 		err.setContentText("Veuillez cliquer un peu plus vers le centre!");
 		err.showAndWait();
 	}
 
-	
+
 }

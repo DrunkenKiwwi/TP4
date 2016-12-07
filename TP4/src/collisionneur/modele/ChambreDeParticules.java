@@ -32,11 +32,10 @@ public class ChambreDeParticules {
 
 	public void setPosX(double x) throws BordureException {
 
-		if (x >= 0 || x <= 728) {
+		if (x - this.rayon >= 0 || x + this.rayon < 728) {
 			this.posX = x;
 		} else {
 			throw new BordureException();
-
 		}
 
 	}
@@ -45,9 +44,11 @@ public class ChambreDeParticules {
 		return posY;
 	}
 
-	public void setPosY(double y) {
-		if (y >= 0 || y <= 348) {
+	public void setPosY(double y) throws BordureException {
+		if (y - this.rayon >= 0 || y + this.rayon <= 348) {
 			this.posY = y;
+		} else {
+			throw new BordureException();
 		}
 	}
 
@@ -67,9 +68,8 @@ public class ChambreDeParticules {
 	}
 
 	public void setVitesseX(double r) {
-		
-			this.vitesseX = r;
-		
+
+		this.vitesseX = r;
 
 	}
 
@@ -78,9 +78,8 @@ public class ChambreDeParticules {
 	}
 
 	public void setVitesseY(double r) {
-	
-			this.vitesseY = r;
-		
+
+		this.vitesseY = r;
 
 	}
 
@@ -88,11 +87,9 @@ public class ChambreDeParticules {
 		return angle;
 	}
 
-	public void setAngle(double angle) throws BordureException {
+	public void setAngle(double angle) {
 		if (angle >= 0 && angle <= 360) {
 			this.angle = angle;
-		} else {
-			throw new BordureException();
 		}
 
 	}
