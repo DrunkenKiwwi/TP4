@@ -32,7 +32,7 @@ public class ChambreDeParticules {
 
 	public void setPosX(double x) throws BordureException {
 
-		if (x - this.rayon >= 0 || x + this.rayon < 728) {
+		if (x - getRayon() >= 0 && x + getRayon() < 728) {
 			this.posX = x;
 		} else {
 			throw new BordureException();
@@ -45,7 +45,7 @@ public class ChambreDeParticules {
 	}
 
 	public void setPosY(double y) throws BordureException {
-		if (y - this.rayon >= 0 || y + this.rayon <= 348) {
+		if (y - getRayon() >= 0 && y + getRayon() <= 348) {
 			this.posY = y;
 		} else {
 			throw new BordureException();

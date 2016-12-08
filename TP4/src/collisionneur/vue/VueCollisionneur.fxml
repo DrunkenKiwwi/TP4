@@ -67,7 +67,7 @@
       </VBox>
    </bottom>
    <top>
-      <StackPane fx:id="pane" maxWidth="-Infinity" minWidth="-Infinity" onMousePressed="#genererClick" prefHeight="348.0" prefWidth="728.0" styleClass="pane" stylesheets="@../../../res/styles/collisionneur_styles.css" BorderPane.alignment="CENTER">
+      <StackPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMousePressed="#genererClick" prefHeight="348.0" prefWidth="728.0" styleClass="pane" stylesheets="@../../../res/styles/collisionneur_styles.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>

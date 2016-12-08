@@ -38,7 +38,8 @@ public class InfoParticule extends Thread {
 
 					for (int k = 0; k < array.size() + 1; k++) {
 						for (int j = k + 1; j < array.size(); j++) {
-							if (verifCollisions(array.get(k), array.get(j)) && array.size() != 0) {
+
+							if (array.size() != 0 && j != 0 && k != 0 && verifCollisions(array.get(k), array.get(j))) {
 								faireCollisions(array.get(k), array.get(j));
 
 							}
@@ -50,10 +51,6 @@ public class InfoParticule extends Thread {
 					deplacerX(p);
 					deplacerY(p);
 
-				}else if ((p.getPropX() + p.getVitesseX() + p.getRayon())> 728
-						|| (p.getPropY() + p.getVitesseY() + p.getRayon()) > 348) {
-					p.setPropX(100);
-					p.setPropY(100);
 				}
 
 			}
@@ -63,6 +60,7 @@ public class InfoParticule extends Thread {
 				e.printStackTrace();
 			}
 		}
+
 	}
 
 	/**

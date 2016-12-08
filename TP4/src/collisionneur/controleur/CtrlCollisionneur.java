@@ -21,7 +21,8 @@ import javafx.stage.Stage;
 
 public class CtrlCollisionneur {
 
-	private static final int NBPARTICULES = 5;
+	private static final int NBPARTICULES = 2;
+	
 
 	@FXML
 	private Label compteur;
@@ -115,7 +116,7 @@ public class CtrlCollisionneur {
 	}
 
 	/**
-	 * Clear le StackPane des particule et vide le tableau Remts le compteur à
+	 * Clear le StackPane des particules et vide le tableau Remts le compteur à
 	 * zéro
 	 */
 	@FXML
@@ -152,15 +153,17 @@ public class CtrlCollisionneur {
 	 * @param p
 	 */
 	public void ajouterParticules(Particule p) {
-		arrayBalle.add(p);
+
 		Circle c = new Circle(p.getPosX(), p.getPosY(), p.getRayon(), p.getCouleur());
 
 		c.centerXProperty().bind(p.propXProperty());
 		c.centerYProperty().bind(p.propYProperty());
 		c.setManaged(false);
+		
 		pane.getChildren().add(c);
+		
 		t.setArrayBall(getArrayBalle());
-
+		arrayBalle.add(p);
 		compteur.setText(String.valueOf(arrayBalle.size()));
 
 	}
